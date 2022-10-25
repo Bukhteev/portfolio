@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  psql_src:
+    image: postgres:14.5
+    ports:
+      - "54321:5432"
+    environment:
+      POSTGRES_DB: "db_to_read"
+      POSTGRES_USER: "etl"
+      POSTGRES_PASSWORD: "etl_contest"
+
+  psql_dst:
+    image: postgres:14.5
+    ports:
+      - "54322:5432"
+    environment:
+      POSTGRES_DB: "db_to_write"
+      POSTGRES_USER: "etl"
+      POSTGRES_PASSWORD: "etl_contest"
